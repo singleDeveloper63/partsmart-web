@@ -4,7 +4,7 @@ import Slider from 'react-slick';
 import a1 from '../../assets/images/adv1.jpg'
 import a3 from '../../assets/images/adv3.jpg'
 import a2 from '../../assets/images/adv2.jpg'
-import { AiOutlineArrowLeft ,AiOutlineArrowRight} from 'react-icons/ai'
+import { AiOutlineArrowLeft ,AiOutlineArrowRight , AiOutlineSend} from 'react-icons/ai'
 import { ProductCard } from '../../components';
 import p1 from '../../assets/images/p1.jpg';
 import p2 from '../../assets/images/p2.jpg';
@@ -36,6 +36,10 @@ function Home(){
                 <button onClick={()=>slider.current.slickNext()}> <AiOutlineArrowRight/> </button>
             </div>
             <Related/>
+            <BestSeller title="Eng ko'p sotilgan"/>
+            <Order/>
+            <BestSeller title="Ko'p izlanadigan"/>
+            <BestSeller title="Buyurtma asosida keltirilgan"/>
         </div>
     )
 }
@@ -126,6 +130,110 @@ function Related(){
                         })
                     }
                 </Slider>
+            </div>
+        </div>
+    )
+}
+
+function BestSeller({title}){
+    const relatedProducts = createRef()
+
+    const data = [
+        {
+            image : p1 , 
+            title : "Lorem consectetur adipisicing elit ipsum dolor sit amet consectetur adipisicing elit.",
+            price : "300 000"
+        },
+        {
+            image : p2 , 
+            title : "Lorem ipsum dolor sit amet consectetur adipisicing elit consectetur adipisicing elit.",
+            price : "300 000"
+        },
+        {
+            image : p3 , 
+            title : "Lorem consectetur adipisicing elit ipsum dolor sit amet consectetur adipisicing elit.",
+            price : "300 000"
+        },
+        {
+            image : p4 , 
+            title : "Lorem ipsum dolor sit consectetur adipisicing elit amet consectetur adipisicing elit.",
+            price : "300 000"
+        },
+        {
+            image : p5 , 
+            title : "Lorem ipsum dolor sit amet consectetur adipisicing elit consectetur adipisicing elit.",
+            price : "300 000"
+        },
+        {
+            image : p6 , 
+            title : "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+            price : "300 000"
+        },
+
+
+    ]
+
+    return(
+        <div className="relatedProducts">
+            <div className="relatedProducts_head">
+                <h1> {title} </h1>
+                <div>
+                    <button onClick={()=>relatedProducts.current.slickPrev()}> <AiOutlineArrowLeft/> </button>
+                    <button onClick={()=>relatedProducts.current.slickNext()}> <AiOutlineArrowRight/> </button>
+                </div>
+            </div>
+            <div className="relatedProducts_list">
+                <Slider infinite ref={relatedProducts} slidesToShow={4} autoplay autoplaySpeed={3000} slidesToScroll={1} responsive={
+                    [
+                        {
+                            breakpoint: 1024,
+                            settings: {
+                              slidesToShow: 3,
+                              slidesToScroll: 3,
+                              infinite: true,
+                              dots: true
+                            }
+                          },
+                          {
+                            breakpoint: 600,
+                            settings: {
+                              slidesToShow: 2,
+                              slidesToScroll: 2,
+                              initialSlide: 2
+                            }
+                          },
+                          {
+                            breakpoint: 480,
+                            settings: {
+                              slidesToShow: 2,
+                              slidesToScroll: 1
+                            }
+                          }
+                    ]
+                }>
+                    {
+                        data.map( (item,index)=>{
+                            return(
+                                <ProductCard data={item} key={`${index}${item.title}`}/>
+                            )
+                        })
+                    }
+                </Slider>
+            </div>
+        </div>
+    )
+}
+
+
+function Order(){
+    return(
+        <div className="order">
+            <h1>Izlagan tovaringizni topa olmadingizmi?</h1>
+            <p>Unda hoziroq buyurtma qiling</p>
+            <div className="order-give">
+                <input type="text" className="form-control" placeholder="Tovar nomi"/>
+                <input type="tel" placeholder="Telefon raqamingiz" className="form-control"/>
+                <button><AiOutlineSend/> <span className="d-inline d-md-none">Buyurtma berish</span></button>
             </div>
         </div>
     )

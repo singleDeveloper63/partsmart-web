@@ -58,7 +58,7 @@ function Header(props){
                 <div className="input-group">
                     <input type="search" placeholder="VIN Raqami bo'yicha izlash" className="form-control"/>
                     <div className="input-group-append">
-                        <button className="btn input-group-btn">Izlash</button>
+                        <button className="btn input-group-btn">Izlash </button>
                     </div>
                 </div>
             </div>
@@ -85,7 +85,7 @@ function Header(props){
                 <div className="input-group">
                     <input type="text" placeholder="Izlash" className="form-control"/>
                     <div className="input-group-append">
-                        <button className="input-group-btn">Izlash</button>
+                        <button className="input-group-btn"> <span className="d-inline d-sm-none"> <IoIosSearch size="50"/> </span> <span className="d-none d-sm-inline">Izlash</span></button>
                     </div>
                 </div>
                 <button className="close" data-toggle="collapse" data-target="#productSearch"> <VscClose/></button>

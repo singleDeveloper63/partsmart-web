@@ -117,10 +117,6 @@ button{
     display: none !important;
 }
 
-.slick-slider , .slick-initialized,.slick-list, .slick-track , .slick-slide {
-    touch-action: none !important;
-    -ms-touch-action: none !important;
-}
 
 .slick-slide{
     &:active{
