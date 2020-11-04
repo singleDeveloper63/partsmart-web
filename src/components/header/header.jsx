@@ -3,10 +3,12 @@ import './header.scss';
 import logo from '../../assets/images/logo.png';
 import ru from '../../assets/images/ru.svg';
 import uz from '../../assets/images/uz.svg';
-import { HiOutlineTranslate } from 'react-icons/hi';
-import { AiOutlineShoppingCart , AiOutlineHeart } from 'react-icons/ai'
+import { HiMail, HiOutlineTranslate, HiPhone } from 'react-icons/hi';
+import { AiOutlineShoppingCart , AiOutlineHeart , AiOutlineFacebook , AiOutlineTwitter , AiOutlineInstagram  } from 'react-icons/ai'
 import { VscAccount , VscMenu  , VscClose , VscKey , VscMail , VscSearch} from 'react-icons/vsc';
 import { IoIosSearch } from 'react-icons/io';
+import { CSSTransition } from 'react-transition-group';
+
 function Header(props){
 
     const [authVisible, setauthVisible] = useState(false);
@@ -53,7 +55,10 @@ function Header(props){
                     </div>
                 </div>
             </nav>
-            <AuthModal visible={authVisible} onChange={()=>setauthVisible(false)}/>
+            <CSSTransition in={authVisible} timeout={400} classNames="fade">
+                <AuthModal visible={authVisible} onChange={()=>setauthVisible(false)}/>
+            </CSSTransition>
+
             <div className="collapse vinsearch" id="search">
                 <div className="input-group">
                     <input type="search" placeholder="VIN Raqami bo'yicha izlash" className="form-control"/>
@@ -96,6 +101,51 @@ function Header(props){
                     props.children
                 }
             </div>
+            <div className="footer">
+                <div className="row">
+                    <div className="col-12 col-md-6 col-lg-3">
+                        <h4>Bizning manzilimiz</h4>
+                        <ul>
+                            <li>Lorem ipsum dolor sit.</li>
+                            <li>Lorem ipsum dolor sit.</li>
+                            <li>Lorem ipsum dolor sit.</li>
+                            <li>Lorem ipsum dolor sit.</li>
+                        </ul>
+                    </div>
+
+                    <div className="col-12 col-md-6 col-lg-3">
+                        <h4>Aloqa</h4>
+                        <ul>
+                            <li><HiMail/> singledeveloper63@gmail.com</li>
+                            <li><HiPhone/> +998 (93) 772-07-49</li>
+                            <li><HiPhone/> +998 (99) 035-93-54</li>
+                            <li><i className="fab fa-fw fa-telegram-plane"></i>  <a href="https://t.me/singledeveloper63">Telegram</a></li>
+                        </ul>
+                    </div>
+
+                    
+                    <div className="col-12 col-md-6 col-lg-3">
+                        <h4>Havolalar</h4>
+                        <ul>
+                            <li>Lorem ipsum dolor sit.</li>
+                            <li>Lorem ipsum dolor sit.</li>
+                            <li>Lorem ipsum dolor sit.</li>
+                            <li>Lorem ipsum dolor sit.</li>
+                        </ul>
+                    </div>
+
+                    <div className="col-12 col-md-6 col-lg-3">
+                        <h4>Biz ijtimoiy tarmoqlarda</h4>
+                        <ul>
+                            <li><AiOutlineFacebook/>  Facebook</li>
+                            <li><AiOutlineInstagram/> Instagram</li>
+                            <li><AiOutlineTwitter/> Twitter</li>
+                            <li><i className="fab fa-fw fa-telegram-plane"></i> Telegram</li>
+                        </ul>
+                    </div>
+                    
+                </div>
+            </div>
         </>
     )
 
@@ -110,10 +160,6 @@ function AuthModal({visible , onChange}){
 
     return(
         <div className={`auth-modal ${isVisible ? "aModalVisible" : ""}`}>
-            <div className="overlay" onClick={()=>{
-                setIsVisible(false)
-                onChange()
-            }}></div>
             <div className="auth-modal-toggler">
                 <button className={authType === "signin" ? "active" : ""} onClick={()=>setAUthType("signin")}>KIRISH</button>
                 <button className={authType === "signup" ? "active" : ""} onClick={()=>setAUthType("signup")}>RO'YXATDAN O'TISH</button>
@@ -123,7 +169,6 @@ function AuthModal({visible , onChange}){
                     setIsVisible(false);
                     onChange()
                 }}> <VscClose/> </button>
-
             <div className="auth-modal-content">
                 <div className={`signin ${authType === "signin" ? "aVisible" : ""}`}>
                     <div className="form-group">

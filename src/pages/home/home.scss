@@ -21,7 +21,7 @@
     button{
         height: 100px;
         position: absolute;
-        z-index: 1;
+        z-index: 2;
         top: 50%;
         transform: translateY(-50%);
         border: none;
@@ -79,10 +79,8 @@
     }
 }
 
-.slick-list, .slick-track { touch-action:pan-y !important; }
-
 .order{
-    background: #7c0505;
+    background-color: #7c0505;
     padding: 20px;
 
     h1{
@@ -142,4 +140,42 @@
             }
         }
     }
+}
+
+.subscribe{
+    background-color: #7c0505;
+    padding: 20px;
+    
+    h1{
+        font-size: 30px;
+        font-family: Extra;
+        color: white;
+        text-transform: lowercase;
+        font-variant: small-caps;
+    }
+
+
+    p{
+        font-size: 20px;
+        color: white;
+        text-transform: lowercase;
+        font-variant: small-caps;
+    }
+
+   .input-group{
+       margin: 0px auto;
+       
+       input,button{
+           height: 60px;
+           border: none !important;
+           font-size: 20px;
+           margin: 0px 5px;
+       }
+
+       button{
+           background: black;
+           color: white;
+           padding: 0px 20px;
+       }
+   }
 }

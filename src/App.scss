@@ -1,9 +1,14 @@
 @import '/node_modules/bootstrap/dist/css/bootstrap.min.css';
 @import '/node_modules/@fortawesome/fontawesome-free/css/all.css';
-@import '/node_modules/slick-carousel/slick/slick.css';
+@import '/node_modules/owl.carousel/dist/assets/owl.carousel.css';
+@import '/node_modules/owl.carousel/dist/assets/owl.theme.default.css';
+
+
+
 body{
     font-family: Regular;
     height: 200vh;
+    background: #eee;
 }
 
 .dropdown{
@@ -122,4 +127,31 @@ button{
     &:active{
         cursor: grabbing;
     }
+}
+
+.fade{
+    &-enter{
+        transition: .4s;
+        opacity: 0 !important;
+
+        &-active{
+            transition: .4s;
+            opacity: 1 !important;
+        }
+    }
+
+    &-exit{
+        transition-delay: 1s !important;
+        transition: .4s;
+        opacity: 1;
+
+        &-active{
+            transition: .4s;
+            opacity: 0;
+        }
+    }
+}
+
+.row{
+    margin: 0px;
 }

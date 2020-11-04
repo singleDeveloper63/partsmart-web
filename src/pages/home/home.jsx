@@ -1,6 +1,6 @@
 import './home.scss';
 import { createRef, useEffect, useState } from 'react';
-import Slider from 'react-slick';
+import Owl from 'react-owl-carousel';
 import a1 from '../../assets/images/adv1.jpg'
 import a3 from '../../assets/images/adv3.jpg'
 import a2 from '../../assets/images/adv2.jpg'
@@ -21,8 +21,8 @@ function Home(){
     return(
         <div className="home">
             <div className="related">
-                <button onClick={()=>slider.current.slickPrev()}> <AiOutlineArrowLeft/> </button>
-                <Slider initialSlide={0} ref={slider}  slidesToShow={1} slidesToScroll={1} className="slider">
+                <button onClick={()=>slider.current.prev(500)}> <AiOutlineArrowLeft/> </button>
+                <Owl items={1} dots={false}  ref={slider} className="owl-theme slider" loop={true}  margin={10} nav>
                     <div className="item">
                         <img src={a1} alt=""/>
                     </div>
@@ -32,108 +32,19 @@ function Home(){
                     <div className="item">
                         <img src={a3} alt=""/>
                     </div>
-                </Slider>
-                <button onClick={()=>slider.current.slickNext()}> <AiOutlineArrowRight/> </button>
+                </Owl>
+                <button onClick={()=>slider.current.next(500)}> <AiOutlineArrowRight/> </button>
             </div>
-            <Related/>
+            <BestSeller title="Yangi ehtiyot qismlar"/>
             <BestSeller title="Eng ko'p sotilgan"/>
             <Order/>
             <BestSeller title="Ko'p izlanadigan"/>
             <BestSeller title="Buyurtma asosida keltirilgan"/>
+            <Subscribe/>
         </div>
     )
 }
 
-
-function Related(){
-
-    const relatedProducts = createRef()
-
-    const data = [
-        {
-            image : p1 , 
-            title : "Lorem consectetur adipisicing elit ipsum dolor sit amet consectetur adipisicing elit.",
-            price : "300 000"
-        },
-        {
-            image : p2 , 
-            title : "Lorem ipsum dolor sit amet consectetur adipisicing elit consectetur adipisicing elit.",
-            price : "300 000"
-        },
-        {
-            image : p3 , 
-            title : "Lorem consectetur adipisicing elit ipsum dolor sit amet consectetur adipisicing elit.",
-            price : "300 000"
-        },
-        {
-            image : p4 , 
-            title : "Lorem ipsum dolor sit consectetur adipisicing elit amet consectetur adipisicing elit.",
-            price : "300 000"
-        },
-        {
-            image : p5 , 
-            title : "Lorem ipsum dolor sit amet consectetur adipisicing elit consectetur adipisicing elit.",
-            price : "300 000"
-        },
-        {
-            image : p6 , 
-            title : "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-            price : "300 000"
-        },
-
-
-    ]
-
-    return(
-        <div className="relatedProducts">
-            <div className="relatedProducts_head">
-                <h1>Yangi ehtiyot qismlari</h1>
-                <div>
-                    <button onClick={()=>relatedProducts.current.slickPrev()}> <AiOutlineArrowLeft/> </button>
-                    <button onClick={()=>relatedProducts.current.slickNext()}> <AiOutlineArrowRight/> </button>
-                </div>
-            </div>
-            <div className="relatedProducts_list">
-                <Slider infinite ref={relatedProducts} slidesToShow={4} autoplay autoplaySpeed={3000} slidesToScroll={1} responsive={
-                    [
-                        {
-                            breakpoint: 1024,
-                            settings: {
-                              slidesToShow: 3,
-                              slidesToScroll: 3,
-                              infinite: true,
-                              dots: true
-                            }
-                          },
-                          {
-                            breakpoint: 600,
-                            settings: {
-                              slidesToShow: 2,
-                              slidesToScroll: 2,
-                              initialSlide: 2
-                            }
-                          },
-                          {
-                            breakpoint: 480,
-                            settings: {
-                              slidesToShow: 2,
-                              slidesToScroll: 1
-                            }
-                          }
-                    ]
-                }>
-                    {
-                        data.map( (item,index)=>{
-                            return(
-                                <ProductCard data={item} key={`${index}${item.title}`}/>
-                            )
-                        })
-                    }
-                </Slider>
-            </div>
-        </div>
-    )
-}
 
 function BestSeller({title}){
     const relatedProducts = createRef()
@@ -178,39 +89,25 @@ function BestSeller({title}){
             <div className="relatedProducts_head">
                 <h1> {title} </h1>
                 <div>
-                    <button onClick={()=>relatedProducts.current.slickPrev()}> <AiOutlineArrowLeft/> </button>
-                    <button onClick={()=>relatedProducts.current.slickNext()}> <AiOutlineArrowRight/> </button>
+                    <button onClick={()=>relatedProducts.current.prev()}> <AiOutlineArrowLeft/> </button>
+                    <button onClick={()=>relatedProducts.current.next()}> <AiOutlineArrowRight/> </button>
                 </div>
             </div>
             <div className="relatedProducts_list">
-                <Slider infinite ref={relatedProducts} slidesToShow={4} autoplay autoplaySpeed={3000} slidesToScroll={1} responsive={
-                    [
-                        {
-                            breakpoint: 1024,
-                            settings: {
-                              slidesToShow: 3,
-                              slidesToScroll: 3,
-                              infinite: true,
-                              dots: true
-                            }
-                          },
-                          {
-                            breakpoint: 600,
-                            settings: {
-                              slidesToShow: 2,
-                              slidesToScroll: 2,
-                              initialSlide: 2
-                            }
-                          },
-                          {
-                            breakpoint: 480,
-                            settings: {
-                              slidesToShow: 2,
-                              slidesToScroll: 1
-                            }
-                          }
-                    ]
-                }>
+                <Owl ref={relatedProducts} loop={true} items={4} responsive={{
+                    0:{
+                        items : 2
+                    },
+                    600:{
+                        items:3
+                    },
+                    800:{
+                        items : 4
+                    },
+                    1000 : {
+                        items : 5
+                    }
+                }}>
                     {
                         data.map( (item,index)=>{
                             return(
@@ -218,12 +115,26 @@ function BestSeller({title}){
                             )
                         })
                     }
-                </Slider>
+                </Owl>
             </div>
         </div>
     )
 }
 
+function Subscribe(){
+    return(
+        <div className="subscribe">
+            <h1>Yangiliklarimizdan birinchilardan xabardor bo'lishni istaysizmi ?</h1>
+            <p>Unda obuna bo'ling</p>
+            <div className="input-group">
+                <input type="email" className="form-control" placeholder="Elektron pochta"/>
+                <div className="input-group-append">
+                    <button className="input-group-btn">Yozilish</button>
+                </div>
+            </div>
+        </div>
+    )
+}
 
 function Order(){
     return(
