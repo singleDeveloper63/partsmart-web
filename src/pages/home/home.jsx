@@ -104,7 +104,7 @@ function BestSeller({title}){
                     800:{
                         items : 4
                     },
-                    1000 : {
+                    1101 : {
                         items : 5
                     }
                 }}>
