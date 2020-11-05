@@ -179,3 +179,46 @@
        }
    }
 }
+
+.checking{
+    background: white;
+    padding: 30px;
+    border-radius: 5px;
+
+    h4{
+        font-size: 25px;
+        font-family: Bold;
+        color: #7c0505;
+    }
+
+    .form-group{
+        margin: 20px 0px;
+
+        
+        label{
+            font-family: Light;
+            font-variant: small-caps;
+            text-transform: lowercase;
+        }
+    }
+
+    input , button{
+        height: 50px;
+        display: block;
+        width: 100% !important;
+
+        &:focus{
+            border: 1px solid #7c0505;
+        }
+    }
+
+    button{
+        border: none !important;
+        background: #7c0505;
+        color: white;
+        text-transform: lowercase;
+        font-variant: small-caps;
+        margin-top: 30px;
+        outline: none !important;
+    }
+}

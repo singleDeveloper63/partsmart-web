@@ -4,7 +4,10 @@ import logo from '../../assets/images/logo.png';
 import ru from '../../assets/images/ru.svg';
 import uz from '../../assets/images/uz.svg';
 import { HiMail, HiOutlineTranslate, HiPhone } from 'react-icons/hi';
-import { AiOutlineShoppingCart , AiOutlineHeart , AiOutlineFacebook , AiOutlineTwitter , AiOutlineInstagram  } from 'react-icons/ai'
+import chevro from '../../assets/images/chevro.svg';
+import daewoo from '../../assets/images/daewoo.svg';
+import ravon from '../../assets/images/ravon.png';
+import { AiOutlineShoppingCart , AiOutlineDown,AiOutlineHeart , AiOutlineFacebook , AiOutlineTwitter , AiOutlineInstagram, AiOutlineClose  } from 'react-icons/ai'
 import { VscAccount , VscMenu  , VscClose , VscKey , VscMail , VscSearch} from 'react-icons/vsc';
 import { IoIosSearch } from 'react-icons/io';
 import { CSSTransition } from 'react-transition-group';
@@ -12,7 +15,7 @@ import { CSSTransition } from 'react-transition-group';
 function Header(props){
 
     const [authVisible, setauthVisible] = useState(false);
-
+    const [sidebarOpen , setSidebarOpen] = useState(false)
     useEffect(()=>{
         window.addEventListener('scroll',()=>{
             const elem = document.getElementById("header")
@@ -69,7 +72,7 @@ function Header(props){
             </div>
             <div className="header-navbar" id="header">
                 <div className="left">
-                    <button>
+                    <button onClick={()=>setSidebarOpen(true)}>
                         <VscMenu/>
                     </button>
                     <button data-toggle="collapse" data-target="#productSearch">
@@ -101,6 +104,14 @@ function Header(props){
                     props.children
                 }
             </div>
+            <Footer/>
+            <Sidebar visible={sidebarOpen}/>
+        </>
+    )
+
+
+    function Footer(){
+        return(
             <div className="footer">
                 <div className="row">
                     <div className="col-12 col-md-6 col-lg-3">
@@ -146,61 +157,108 @@ function Header(props){
                     
                 </div>
             </div>
-        </>
-    )
-
-    
-function AuthModal({visible , onChange}){
-    useEffect(()=>{
+        )
+    }
         
-    },[])
-    
-    const [authType,setAUthType] = useState("signin");
-    const [isVisible , setIsVisible] = useState(visible);
+    function AuthModal({visible , onChange}){
+        useEffect(()=>{
+            
+        },[])
+        
+        const [authType,setAUthType] = useState("signin");
+        const [isVisible , setIsVisible] = useState(visible);
 
-    return(
-        <div className={`auth-modal ${isVisible ? "aModalVisible" : ""}`}>
-            <div className="auth-modal-toggler">
-                <button className={authType === "signin" ? "active" : ""} onClick={()=>setAUthType("signin")}>KIRISH</button>
-                <button className={authType === "signup" ? "active" : ""} onClick={()=>setAUthType("signup")}>RO'YXATDAN O'TISH</button>
-            </div>
-
-            <button className="close" onClick={()=>{
-                    setIsVisible(false);
-                    onChange()
-                }}> <VscClose/> </button>
-            <div className="auth-modal-content">
-                <div className={`signin ${authType === "signin" ? "aVisible" : ""}`}>
-                    <div className="form-group">
-                        <label htmlFor="login"><VscMail/> Elektron pochta</label>
-                        <input type="text" className="form-control" id="login"/>
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="parol"><VscKey/> Parol</label>
-                        <input type="password" className="form-control" id="parol"/>
-                    </div>
-                    <button className="signinBtn">Kirish</button>
+        return(
+            <div className={`auth-modal ${isVisible ? "aModalVisible" : ""}`}>
+                <div className="auth-modal-toggler">
+                    <button className={authType === "signin" ? "active" : ""} onClick={()=>setAUthType("signin")}>KIRISH</button>
+                    <button className={authType === "signup" ? "active" : ""} onClick={()=>setAUthType("signup")}>RO'YXATDAN O'TISH</button>
                 </div>
 
-                <div className={`signup ${authType === 'signup' ? 'aVisible' : "" }`}>
-                    <div className="form-group">
-                        <label htmlFor="username"><VscMail/>  Elektron pochta</label>
-                        <input type="email" className="form-control" id="username"/>
+                <button className="close" onClick={()=>{
+                        setIsVisible(false);
+                        onChange()
+                    }}> <VscClose/> </button>
+                <div className="auth-modal-content">
+                    <div className={`signin ${authType === "signin" ? "aVisible" : ""}`}>
+                        <div className="form-group">
+                            <label htmlFor="login"><VscMail/> Elektron pochta</label>
+                            <input type="text" className="form-control" id="login"/>
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="parol"><VscKey/> Parol</label>
+                            <input type="password" className="form-control" id="parol"/>
+                        </div>
+                        <button className="signinBtn">Kirish</button>
                     </div>
-                    <div className="form-group">
-                        <label htmlFor="password"><VscKey/>  Parol</label>
-                        <input type="password" id="password" className="form-control"/>
+
+                    <div className={`signup ${authType === 'signup' ? 'aVisible' : "" }`}>
+                        <div className="form-group">
+                            <label htmlFor="username"><VscMail/>  Elektron pochta</label>
+                            <input type="email" className="form-control" id="username"/>
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="password"><VscKey/>  Parol</label>
+                            <input type="password" id="password" className="form-control"/>
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="retype"><VscKey/>  Parolni qayta kiriting</label>
+                            <input type="password" className="form-control" id="retype"/>
+                        </div>
+                        <button className="signupBtn">Ro'yxatdan o'tish</button>
                     </div>
-                    <div className="form-group">
-                        <label htmlFor="retype"><VscKey/>  Parolni qayta kiriting</label>
-                        <input type="password" className="form-control" id="retype"/>
-                    </div>
-                    <button className="signupBtn">Ro'yxatdan o'tish</button>
                 </div>
             </div>
-        </div>
-    )
-}
+        )
+    }
+
+    function Sidebar({visible}){
+        const [open,setOpen] = useState(visible);
+
+        return(
+            <>
+                <div className={`sidebar ${open && "svisible" }`}>
+                    <img src={logo} alt="logotip" className="sidebar_logo d-block mx-auto"/>
+
+                    <ul className="sidebar-menu">
+                        <li>
+                            <div data-toggle="collapse" data-target="#daewoo"><img src={daewoo} alt="Daewoo"/> <span>Daewoo / Ravon / Chevrolet</span>  <AiOutlineDown/></div>
+                            <ul className="collapse" id="daewoo">
+                                <li>Matiz</li>
+                                <li>Gentra / Lacetti</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div data-toggle="collapse" data-target="#ravon"><img src={ravon} alt="Ravon"/><span>Chevrolet / Ravon</span> <AiOutlineDown/></div>
+                            <ul className="collapse" id="ravon">
+                                <li>Nexia / Nexia R3</li>
+                                <li>SPARK / R2</li>
+                                <li>COBALT / R4</li>
+                                <li>TRACKER</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div data-toggle="collapse" data-target="#chevrolet"><img src={chevro} alt="Chevrolet"/>  <span>Chevrolet</span>  <AiOutlineDown/></div>
+                            <ul className="collapse" id="chevrolet">
+                                <li>Damas / Labo</li>
+                                <li>EQUINOX</li>
+                                <li>TRAILBLAZER</li>
+                                <li>TRAVERSE</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <button className="close" onClick={()=>{
+                        setOpen(false);
+                        setSidebarOpen(false)
+                    }}> <span>&times;</span> </button>
+                </div>
+                <div className="sidebar_overlay" onClick={()=>{
+                        setOpen(false);
+                        setSidebarOpen(false)
+                }}></div>
+            </>
+        )
+    }
 }
 
 

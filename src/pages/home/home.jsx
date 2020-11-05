@@ -20,20 +20,36 @@ function Home(){
 
     return(
         <div className="home">
-            <div className="related">
-                <button onClick={()=>slider.current.prev(500)}> <AiOutlineArrowLeft/> </button>
-                <Owl items={1} dots={false}  ref={slider} className="owl-theme slider" loop={true}  margin={10} nav>
-                    <div className="item">
-                        <img src={a1} alt=""/>
+            <div className="row">
+                <div className="col-12 col-md-8 col-lg-9">
+                    <div className="related">
+                        <button onClick={()=>slider.current.prev(500)}> <AiOutlineArrowLeft/> </button>
+                        <Owl items={1} dots={false}  ref={slider} className="owl-theme slider" loop={true}  margin={10} nav>
+                            <div className="item">
+                                <img src={a1} alt=""/>
+                            </div>
+                            <div className="item">
+                                <img src={a2} alt=""/>
+                            </div>
+                            <div className="item">
+                                <img src={a3} alt=""/>
+                            </div>
+                        </Owl>
+                        <button onClick={()=>slider.current.next(500)}> <AiOutlineArrowRight/> </button>
                     </div>
-                    <div className="item">
-                        <img src={a2} alt=""/>
+                </div>
+                <div className="col-12 col-md-4 col-lg-3">
+                    <div className="checking">
+                        <h4>Buyurtmani tekshirish</h4>
+                        <div className="checking-form">
+                            <div className="form-group">
+                                <label htmlFor="ordernumber">Buyurtma raqami</label>
+                                <input type="text" className="form-control" id="ordernumber"/>
+                            </div>
+                            <button> Tekshirish </button>
+                        </div>
                     </div>
-                    <div className="item">
-                        <img src={a3} alt=""/>
-                    </div>
-                </Owl>
-                <button onClick={()=>slider.current.next(500)}> <AiOutlineArrowRight/> </button>
+                </div>
             </div>
             <BestSeller title="Yangi ehtiyot qismlar"/>
             <BestSeller title="Eng ko'p sotilgan"/>
