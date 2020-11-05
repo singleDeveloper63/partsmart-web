@@ -35,7 +35,7 @@ function Header(props){
                         <a href="#" className="nav-link" onClick={()=>{
                             setauthVisible( prev => !prev);
                         }}>
-                            <VscAccount/>  <span className="d-none d-sm-inline-block">Shaxsiy kabinet</span>
+                            <VscAccount/>  Shaxsiy kabinet
                         </a>
                         <div className="dropdown">
                             <a href="#" data-toggle="dropdown" className="nav-link dropdown-toggle wi">

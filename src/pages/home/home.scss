@@ -183,12 +183,13 @@
 .checking{
     background: white;
     padding: 30px;
-    border-radius: 5px;
 
     h4{
-        font-size: 25px;
+        font-size: 20px;
         font-family: Bold;
         color: #7c0505;
+        text-transform: lowercase;
+        font-variant: small-caps;
     }
 
     .form-group{

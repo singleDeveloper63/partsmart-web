@@ -20,8 +20,8 @@ function Home(){
 
     return(
         <div className="home">
-            <div className="row">
-                <div className="col-12 col-md-8 col-lg-9">
+            <div className="row p-0">
+                <div className="col-12 col-md-8 col-lg-9 p-0 p-md-2">
                     <div className="related">
                         <button onClick={()=>slider.current.prev(500)}> <AiOutlineArrowLeft/> </button>
                         <Owl items={1} dots={false}  ref={slider} className="owl-theme slider" loop={true}  margin={10} nav>
@@ -38,7 +38,7 @@ function Home(){
                         <button onClick={()=>slider.current.next(500)}> <AiOutlineArrowRight/> </button>
                     </div>
                 </div>
-                <div className="col-12 col-md-4 col-lg-3">
+                <div className="col-12 col-md-4 col-lg-3 p-0 p-md-2">
                     <div className="checking">
                         <h4>Buyurtmani tekshirish</h4>
                         <div className="checking-form">

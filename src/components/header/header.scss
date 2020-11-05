@@ -5,6 +5,10 @@
     align-items: center;
     padding: 0px 20px !important;
 
+    @media(max-width:500px){
+        padding: 0px !important;
+    }
+
     a.nav-link{
         color: white !important;
         font-variant: small-caps;
@@ -17,6 +21,11 @@
         &:hover{
             background: rgba(83, 6, 0, 0.148) !important;
             border-right: none;
+        }
+
+        
+        @media(max-width:500px){
+            font-size: 10px !important;
         }
     }
 }
