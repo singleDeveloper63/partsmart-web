@@ -223,3 +223,96 @@
         outline: none !important;
     }
 }
+
+.advantages{
+    padding: 20px 10px;
+
+    &>h1{
+        font-family: Extra;
+        color: #7c0505;
+        border-bottom: 2px solid #7c0505;
+        font-size: 25px;
+        text-transform: lowercase;
+        font-variant: small-caps;
+        padding-bottom: 10px;
+    }
+
+
+    p{
+        font-size: 20px;
+        font-family: Light;
+    }
+
+    section{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 30px 0px;
+
+        img{
+            max-width: 300px;
+        }
+
+        h1{
+            font-family: Regular;
+            color: gray;
+            border-bottom: 1px solid lightgray;
+            font-size: 25px;
+            text-transform: lowercase;
+            font-variant: small-caps;
+            padding-bottom: 5px;
+        }
+
+        div{
+            padding: 0px 20px;
+
+            @media(max-width: 480px){
+                padding: 0px 5px;
+            }
+        }
+
+        @media(max-width: 480px){
+            flex-wrap: wrap;
+
+            img{
+                display: block;
+                margin: 10px auto;
+            }
+
+            &:nth-of-type(2){
+                flex-direction: column-reverse;
+                img{
+                    width: 200px;
+                }
+            }
+        }
+    }
+}
+.banner{
+    width: 94%;
+    height: 300px;
+    padding: 0px !important;
+    margin: 20px auto;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 0px 20px rgba(0,0,0,0.5);
+    position: relative;
+
+    img{
+        width: 100%;
+        height: 100%;
+        object-fit: fill;
+    }
+
+    &::after{
+        content: "Reklama";
+        position: absolute;
+        background: tomato !important;
+        color: white;
+        font-size: 14px;
+        top: 0px;
+        padding: 5px;
+        border-radius: 0px 10px 0px 10px;
+        right: 0px;
+    }
+}
