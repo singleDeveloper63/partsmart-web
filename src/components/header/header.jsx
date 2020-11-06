@@ -3,11 +3,11 @@ import './header.scss';
 import logo from '../../assets/images/logo.png';
 import ru from '../../assets/images/ru.svg';
 import uz from '../../assets/images/uz.svg';
-import { HiMail, HiOutlineTranslate, HiPhone } from 'react-icons/hi';
+import { HiMail, HiOutlineTranslate, HiPhone ,HiOutlineShoppingCart} from 'react-icons/hi';
 import chevro from '../../assets/images/chevro.svg';
 import daewoo from '../../assets/images/daewoo.svg';
 import ravon from '../../assets/images/ravon.png';
-import { AiOutlineShoppingCart , AiOutlineDown,AiOutlineHeart , AiOutlineFacebook , AiOutlineTwitter , AiOutlineInstagram, AiOutlineClose  } from 'react-icons/ai'
+import {  AiOutlineDown,AiOutlineHeart , AiOutlineFacebook , AiOutlineTwitter , AiOutlineInstagram  } from 'react-icons/ai'
 import { VscAccount , VscMenu  , VscClose , VscKey , VscMail } from 'react-icons/vsc';
 import { IoIosSearch } from 'react-icons/io';
 import { CSSTransition } from 'react-transition-group';
@@ -87,7 +87,7 @@ function Header(props){
                         <AiOutlineHeart/>
                     </button>
                     <button>
-                        <AiOutlineShoppingCart/>
+                        <HiOutlineShoppingCart/>
                     </button>
                 </div>
             </div>

@@ -1,6 +1,7 @@
 import './productCard.scss';
-import { VscHeart } from 'react-icons/vsc';
-import {  AiOutlineShoppingCart ,AiOutlineEye} from 'react-icons/ai';
+import { RiHeartAddLine } from 'react-icons/ri';
+import { AiOutlineEye } from 'react-icons/ai';
+import { MdAddShoppingCart } from 'react-icons/md'
 
 function ProductCard({data}){
     return(
@@ -10,11 +11,11 @@ function ProductCard({data}){
                 <p> {data.title} </p>
                 <h4> {data.price}UZS </h4>
                 <div className="actions">
-                    <button> <AiOutlineShoppingCart/> <span className="d-none d-md-inline">Savatchaga</span></button>
+                    <button> <MdAddShoppingCart/> <span className="d-none d-md-inline">Savatchaga</span></button>
                     <button> <AiOutlineEye/> <span className="d-none d-md-inline">Ko'rish</span></button>
                 </div>
             </div>
-            <button className="product_card_wish"> <VscHeart/> </button>
+            <button className="product_card_wish"> <RiHeartAddLine/> </button>
         </div>
     )
 }
