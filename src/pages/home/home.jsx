@@ -1,9 +1,9 @@
 import './home.scss';
 import { createRef, useEffect, useState } from 'react';
 import Owl from 'react-owl-carousel';
-import a1 from '../../assets/images/adv1.jpg'
-import a3 from '../../assets/images/adv3.jpg'
-import a2 from '../../assets/images/adv2.jpg'
+import a1 from '../../assets/images/auto1.jpg'
+import a3 from '../../assets/images/auto3.jpg'
+import a2 from '../../assets/images/auto2.jpg'
 import { AiOutlineArrowLeft ,AiOutlineArrowRight , AiOutlineSend} from 'react-icons/ai'
 import { ProductCard } from '../../components';
 import p1 from '../../assets/images/p1.jpg';
@@ -30,13 +30,13 @@ function Home(){
                         <button onClick={()=>slider.current.prev(500)}> <AiOutlineArrowLeft/> </button>
                         <Owl items={1} dots={false}  ref={slider} className="owl-theme slider" loop={true}  margin={10} nav>
                             <div className="item">
-                                <img src={a1} alt=""/>
+                                <img src={a1} alt="autopart1"/>
                             </div>
                             <div className="item">
-                                <img src={a2} alt=""/>
+                                <img src={a2} alt="autopart2"/>
                             </div>
                             <div className="item">
-                                <img src={a3} alt=""/>
+                                <img src={a3} alt="autopart3"/>
                             </div>
                         </Owl>
                         <button onClick={()=>slider.current.next(500)}> <AiOutlineArrowRight/> </button>

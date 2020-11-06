@@ -115,7 +115,7 @@
 
         button{
             background: none;
-            border: none !important;
+            border: 5px double #660404 !important;
             outline: none !important;
             background: #7c0505;
             color: white;
@@ -265,7 +265,7 @@
 .header-navbar{
     background: #7c0505;
     z-index: 3;
-    height: 60px;
+    height: 80px;
     display: flex;
     width: 100%;
     padding: 10px 100px;
@@ -283,7 +283,9 @@
         padding: 10px 5px !important;
 
         img{
-            display: none;
+            src: url(../../assets/images/logo-small.png) !important;
+            content: url(../../assets/images/logo-small.png);
+            width: 60px !important;
         }
     }
 
@@ -404,7 +406,7 @@
 .footer{
     width: 100%;
     padding: 40px 100px;
-    background: linear-gradient(135deg,#520404,#c23838);
+    background:#0f0000;
     color: white;
 
 
@@ -432,14 +434,14 @@
         li{
             font-size: 16px;
             margin: 10px 0px;
-            color: #f37373;
+            color: #4d4848;
             display: flex;
             align-items: center;
             cursor: pointer;
 
             a{
                 text-decoration: none !important;
-                color: #f37373;
+                color: #4d4848;
                 &:hover{
                     color: white;
                 }
@@ -579,7 +581,7 @@
 
 ::-webkit-scrollbar{
     width: 10px !important;
-    background: #c23838;
+    background: #ff9393b4;
     border-radius: 100px;
 }
 

@@ -155,3 +155,8 @@ button{
 .row{
     margin: 0px;
 }
+
+.disableScroll{
+    overflow-y: hidden !important;
+    height: 100vh;
+}

@@ -35,6 +35,7 @@ function Header(props){
                     <div className="ml-auto d-inline-flex justify-content-end align-items-center">
                         <a href="#" className="nav-link" onClick={()=>{
                             setauthVisible( prev => !prev);
+                            document.body.classList.add("disableScroll")
                         }}>
                             <VscAccount/>  Shaxsiy kabinet
                         </a>
@@ -162,9 +163,6 @@ function Header(props){
     }
         
     function AuthModal({visible , onChange}){
-        useEffect(()=>{
-            
-        },[])
         
         const [authType,setAUthType] = useState("signin");
         const [isVisible , setIsVisible] = useState(visible);
@@ -178,6 +176,7 @@ function Header(props){
 
                 <button className="close" onClick={()=>{
                         setIsVisible(false);
+                        document.body.classList.remove("disableScroll");
                         onChange()
                     }}> <VscClose/> </button>
                 <div className="auth-modal-content">
