@@ -28,6 +28,14 @@ function Header(props){
             }
         )
     },[])
+
+    useEffect(()=>{
+        if(sidebarOpen){
+            document.body.classList.add("disableScroll")
+        }else{
+            document.body.classList.remove("disableScroll")
+        }
+    },[sidebarOpen])
     return(
         <>
             <nav className="navbar header">
