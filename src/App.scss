@@ -7,7 +7,6 @@
 
 body{
     font-family: Regular;
-    height: 200vh;
     background: #eee;
 }
 
@@ -159,4 +158,24 @@ button{
 .disableScroll{
     overflow-y: hidden !important;
     height: 100vh;
+}
+
+.breadcrumb{
+    background: #ccc;
+
+    a{
+        color:  #b90c0c !important;
+        text-decoration: none;
+        font-family: Regular;
+        transition: 0.4s;
+
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+}
+
+.no-outline{
+    outline: none !important;
+    color: #b90c0c;
 }

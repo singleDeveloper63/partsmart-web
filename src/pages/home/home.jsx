@@ -24,25 +24,26 @@ function Home(){
 
     return(
         <div className="home">
-            <div className="row p-0">
-                <div className="col-12 col-md-8 col-lg-9 p-0 p-md-2">
-                    <div className="related">
-                        <button onClick={()=>slider.current.prev(500)}> <AiOutlineArrowLeft/> </button>
-                        <Owl items={1} dots={false}  ref={slider} className="owl-theme slider" loop={true}  margin={10} nav>
-                            <div className="item">
-                                <img src={a1} alt="autopart1"/>
-                            </div>
-                            <div className="item">
-                                <img src={a2} alt="autopart2"/>
-                            </div>
-                            <div className="item">
-                                <img src={a3} alt="autopart3"/>
-                            </div>
-                        </Owl>
-                        <button onClick={()=>slider.current.next(500)}> <AiOutlineArrowRight/> </button>
+            <div className="related">
+                <button onClick={()=>slider.current.prev(500)}> <AiOutlineArrowLeft/> </button>
+                <Owl items={1} dots={false}  ref={slider} className="owl-theme slider" loop={true}  margin={10} nav>
+                    <div className="item">
+                        <img src={a1} alt="autopart1"/>
                     </div>
+                    <div className="item">
+                        <img src={a2} alt="autopart2"/>
+                    </div>
+                    <div className="item">
+                        <img src={a3} alt="autopart3"/>
+                    </div>
+                </Owl>
+                <button onClick={()=>slider.current.next(500)}> <AiOutlineArrowRight/> </button>
+            </div>
+            <div className="row">
+                <div className="col-12 col-md-7 col-lg-8 col-xl-9">
+                    <BestSeller withOrder={true} title="Yangi ehtiyot qismlar"/>
                 </div>
-                <div className="col-12 col-md-4 col-lg-3 p-0 p-md-2">
+                <div className="col-12 col-md-5 col-lg-4 col-xl-3">
                     <div className="checking">
                         <h4>Buyurtmani tekshirish</h4>
                         <div className="checking-form">
@@ -55,7 +56,6 @@ function Home(){
                     </div>
                 </div>
             </div>
-            <BestSeller title="Yangi ehtiyot qismlar"/>
             <BestSeller title="Eng ko'p sotilgan"/>
             <Order/>
             <BestSeller title="Ko'p izlanadigan"/>
@@ -73,7 +73,7 @@ function Home(){
 }
 
 
-function BestSeller({title}){
+function BestSeller({title,withOrder}){
     const relatedProducts = createRef()
 
     const data = [
@@ -121,24 +121,41 @@ function BestSeller({title}){
                 </div>
             </div>
             <div className="relatedProducts_list">
-                <Owl ref={relatedProducts} loop={true} items={4} responsive={{
-                    0:{
-                        items : 2
-                    },
-                    600:{
-                        items:3
-                    },
-                    800:{
-                        items : 4
-                    },
-                    1101 : {
-                        items : 5
+                <Owl loop dots={false} title="Avtomobil ehtiyot qismlari" ref={relatedProducts}  responsive={
+                    !withOrder ? {
+                        0:{
+                            items : 2
+                        },
+                        600:{
+                            items:3  
+                        },
+                        800:{
+                            items : 4
+                        },
+                        1101 : {
+                            items : 5
+                        }
+                    } : {
+                        0:{
+                            items : 2
+                        },
+                        800:{
+                            items : 2
+                        },
+                        1101 : {
+                            items : 3
+                        },
+                        1300 : {
+                            items : 4
+                        }
                     }
-                }}>
+                }>
                     {
                         data.map( (item,index)=>{
                             return(
-                                <ProductCard data={item} key={`${index}${item.title}`}/>
+                                <div key={`${index}${item.title}`}>
+                                    <ProductCard withOrder={withOrder} data={item}/>
+                                </div>
                             )
                         })
                     }
