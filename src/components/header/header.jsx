@@ -184,9 +184,13 @@ function Header(props){
     }
         
     function AuthModal({visible , onChange}){
-        
+
         const [authType,setAUthType] = useState("signin");
         const [isVisible , setIsVisible] = useState(visible);
+
+        const [email,setEmail] = useState("");
+        const [password,setPassword] = useState("");
+
 
         return(
             <div className={`auth-modal ${isVisible ? "aModalVisible" : ""}`}>
@@ -202,15 +206,17 @@ function Header(props){
                     }}> <VscClose/> </button>
                 <div className="auth-modal-content">
                     <div className={`signin ${authType === "signin" ? "aVisible" : ""}`}>
-                        <div className="form-group">
-                            <label htmlFor="login"><VscMail/> Elektron pochta</label>
-                            <input type="text" className="form-control" id="login"/>
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="parol"><VscKey/> Parol</label>
-                            <input type="password" className="form-control" id="parol"/>
-                        </div>
-                        <button className="signinBtn">Kirish</button>
+                        <form>
+                            <div className="form-group">
+                                <label htmlFor="login"><VscMail/> Elektron pochta</label>
+                                <input onChange={ e => setEmail(e.target.value)} required type="text" className="form-control" id="login"/>
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="parol"><VscKey/> Parol</label>
+                                <input onChange={ e => setPassword(e.target.value)} required type="password" className="form-control" id="parol"/>
+                            </div>
+                            <button type="submit" className="signinBtn">Kirish</button>
+                        </form>
                     </div>
 
                     <div className={`signup ${authType === 'signup' ? 'aVisible' : "" }`}>

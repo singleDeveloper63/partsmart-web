@@ -2,12 +2,11 @@
 @import '/node_modules/@fortawesome/fontawesome-free/css/all.css';
 @import '/node_modules/owl.carousel/dist/assets/owl.carousel.css';
 @import '/node_modules/owl.carousel/dist/assets/owl.theme.default.css';
-
+@import '/node_modules/slick-carousel/slick/slick.css';
 
 
 body{
     font-family: Regular;
-    background: #eee;
 }
 
 .dropdown{
@@ -178,4 +177,14 @@ button{
 .no-outline{
     outline: none !important;
     color: #b90c0c;
+}
+
+.slick-list, .slick-track{
+    touch-action: none !important;
+}
+.alice-carousel__stage-item{
+    cursor: grab;
+    &:active{
+        cursor: grabbing;
+    }
 }

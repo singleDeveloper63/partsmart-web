@@ -1,0 +1,39 @@
+
+.relatedProducts{
+    padding: 20px 0px;
+
+    &_head{
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        button{
+            margin: 0px 2.5px;
+            font-size: 25px;
+            border: none !important;
+            background: #7c0505;
+            color: white;
+            transition: .3s;
+            outline: none !important;
+
+            &:active{
+                transform: scale(1.2);
+            }
+        }
+    }
+    h1{
+        font-family: Extra;
+        color: #7c0505;
+        border-bottom: 2px solid #7c0505;
+        font-size: 25px;
+        text-transform: lowercase;
+        font-variant: small-caps;
+        padding-bottom: 10px;
+
+        @media (max-width:600px){
+            font-size: 20px;
+            width: 100%;
+        }
+    }
+}

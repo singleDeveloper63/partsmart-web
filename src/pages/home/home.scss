@@ -18,6 +18,23 @@
     position: relative;
     padding: 0px !important;
 
+    .item{
+        width: 100%;
+        height: 400px;
+
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: fill;
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-user-drag: none;
+            -webkit-touch-callout: none;
+        }
+    }
+
     button{
         height: 100px;
         position: absolute;
@@ -40,44 +57,6 @@
     }
 }
 
-.relatedProducts{
-    padding: 20px 0px;
-
-    &_head{
-        display: flex;
-        align-items: flex-end;
-        justify-content: space-between;
-        flex-wrap: wrap;
-
-        button{
-            margin: 0px 2.5px;
-            font-size: 25px;
-            border: none !important;
-            background: #7c0505;
-            color: white;
-            transition: .3s;
-            outline: none !important;
-
-            &:active{
-                transform: scale(1.2);
-            }
-        }
-    }
-    h1{
-        font-family: Extra;
-        color: #7c0505;
-        border-bottom: 2px solid #7c0505;
-        font-size: 25px;
-        text-transform: lowercase;
-        font-variant: small-caps;
-        padding-bottom: 10px;
-
-        @media (max-width:600px){
-            font-size: 20px;
-            width: 100%;
-        }
-    }
-}
 
 .order{
     background-color: #7c0505;
@@ -183,6 +162,7 @@
 .checking{
     background: white;
     padding: 30px;
+    width: 100%;
 
     h4{
         font-size: 20px;
