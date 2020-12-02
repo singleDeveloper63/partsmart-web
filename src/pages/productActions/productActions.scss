@@ -242,6 +242,13 @@
     img{
         height: 90vh !important;
         width: auto !important;
+        
+        
+
+        @media(max-width: 767px){
+            width: 90vw !important;
+            height: auto !important;
+        }
     }
 }
 
