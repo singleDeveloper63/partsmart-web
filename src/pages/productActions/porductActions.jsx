@@ -1,4 +1,4 @@
-import { createRef, useEffect , useState } from 'react';
+import { useRef, useEffect , useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AiOutlineShoppingCart , AiOutlineHeart } from 'react-icons/ai'
 import { MdLayers } from 'react-icons/md'
@@ -26,11 +26,23 @@ function ProductActions(props){
 }
 
 function Details(){
+
+    const lightbox = useRef();
+
+    function showLightBox(){
+        lightbox.current.classList.add('lightbox')
+        document.body.classList.add("disableScroll")
+    }
+
     return(
         <div className="productActions_details">
             <div className="row">
-                <div className="p-0 col-12 col-md-6 col-lg-5 col-xl-4">
-                    <img src={p1} alt="Product"/>
+                <div ref={lightbox} className="p-0 col-12 col-md-6 col-lg-5 col-xl-4">
+                    <button className="lightboxCloser" onClick={()=>{
+                        lightbox.current.classList.remove('lightbox')
+                        document.body.classList.remove("disableScroll")
+                    }}>&times;</button>
+                    <img src={p1} alt="Product" onClick={()=>showLightBox()}/>
                 </div>
                 <div className="col-12 col-md-6 col-lg-7 col-xl-8 p-0 pl-md-4">
                     <div className="productActions_actions my-5 my-md-0">
@@ -57,7 +69,7 @@ function PartDetails({data}){
 
     const [coords , setCoords] = useState(data.parts)
     const [selected , setSelected] = useState([]);
-    const coordsContainer = createRef();
+    const coordsContainer = useRef();
 
     function handleChange(val , id){
         if(selected.indexOf(id)!== (-1)){
