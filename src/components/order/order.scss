@@ -1,0 +1,63 @@
+
+.order{
+    background-color: #7c0505;
+    padding: 20px;
+
+    h1{
+        font-size: 30px;
+        font-family: Extra;
+        color: white;
+        text-transform: lowercase;
+        font-variant: small-caps;
+    }
+
+
+    p{
+        font-size: 20px;
+        color: white;
+        text-transform: lowercase;
+        font-variant: small-caps;
+    }
+
+    &-give{
+        display: flex;
+        justify-content: space-around;
+        margin-top: 30px;
+
+        @media(max-width:767px){
+            flex-wrap: wrap;
+        }
+
+        input,button{
+            height: 60px !important;
+            margin: 10px 10px;
+        }
+
+        input{
+            font-size: 20px;
+        }
+
+        button{
+            background: black;
+            color: white;
+            border: none !important;
+            outline: none !important;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 70px;
+
+            
+            @media(max-width:767px){
+                width: 100% !important;
+                svg{
+                    margin-right: 10px;
+                }
+            }
+
+            svg{
+                font-size: 30px;
+            }
+        }
+    }
+}

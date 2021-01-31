@@ -1,0 +1,105 @@
+.prodGen{
+    padding: 20px 5px;
+    background: rgba(211, 211, 211, 0.361);
+    position: relative;
+    margin: 30px 0px;
+
+   &>div.prodInfo{
+       display: flex;
+       align-items: stretch;
+       justify-content: space-between;
+
+       @media(max-width:700px){
+           flex-direction: column;
+       }
+
+       .image{
+           flex: 1.5;
+           padding: 10px;
+           height: auto;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+
+           img{
+               width: 100%;
+               max-width: 100%;
+               max-height: 300px;
+               background-color: white;
+               object-fit: scale-down;
+           }
+       }
+
+       .info{
+           flex: 3;
+           padding: 10px;
+           display: flex;
+           flex-direction: column;
+           justify-content: space-between;
+           align-items: stretch;
+
+           h5{
+               display: flex;
+               align-items: center;
+               font-family: 'Light';
+               font-variant: small-caps;
+               text-transform: lowercase;
+               font-size: 20px;
+               color:#7C0505;
+               flex-wrap: wrap;
+
+               &>a{
+                   font-size: 12px;
+                   display: inline-flex;
+                   color: royalblue;
+                   font-family: 'Regular';
+                   text-decoration: none !important;
+                   padding: 3px 5px;
+                   background: white;
+                   border: 1px solid royalblue;
+                   margin: 3px 4px;
+                   border-radius: 100px;
+                   transition: .3s;
+
+                   &:hover{
+                       transform: scale(1.1);
+                       color: white;
+                       background: royalblue;
+                   }
+               }
+
+               span {
+                   padding: 0px 10px;
+                   color: black;
+                   font-family: 'Regular';
+                   font-weight: 900 !important;
+                   font-size: 13px;
+                   display: inline-block;
+               }
+           }
+
+           .sharers{
+               a{
+                   cursor: pointer;
+                   text-transform: lowercase;
+                   font-variant: small-caps;
+                   color: black;
+                   display: inline-flex;
+                   align-items: center;
+                   justify-content: center;
+                   text-decoration: none !important;
+                   background: lightgray;
+                   border-radius: 100px;
+                   margin: 3px;
+                   font-size: 13px;
+                   padding: 5px 10px;
+
+                   svg{
+                       margin-left: 5px;
+                   }
+               }
+           }
+       }
+   }
+
+}

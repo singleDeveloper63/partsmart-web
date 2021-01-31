@@ -1,0 +1,52 @@
+
+.footer{
+    width: 100%;
+    padding: 40px 100px;
+    background:#0f0000;
+    color: white;
+
+
+    @media(max-width: 1200px){
+        padding: 40px 5px !important;
+    }
+
+    h4{
+        font-size: 20px;
+        font-family: Bold;
+        text-transform: lowercase;
+        font-variant: small-caps;
+        margin-bottom: 30px;
+    }
+
+    svg,i{
+        font-size: 20px !important;
+        margin-right: 5px;
+    }
+
+    ul{
+        list-style: none !important;
+        padding: 0px;
+
+        li{
+            font-size: 16px;
+            margin: 10px 0px;
+            color: #4d4848;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+
+            a{
+                text-decoration: none !important;
+                color: #4d4848;
+                &:hover{
+                    color: white;
+                }
+            }
+            
+            &:hover{
+                color: white;
+            }
+
+        }
+    }
+}

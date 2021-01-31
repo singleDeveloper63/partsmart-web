@@ -1,0 +1,39 @@
+
+.subscribe{
+    background-color: #7c0505;
+    padding: 20px;
+    margin: 20px 0px;
+    
+    h1{
+        font-size: 30px;
+        font-family: Extra;
+        color: white;
+        text-transform: lowercase;
+        font-variant: small-caps;
+    }
+
+
+    p{
+        font-size: 20px;
+        color: white;
+        text-transform: lowercase;
+        font-variant: small-caps;
+    }
+
+   .input-group{
+       margin: 0px auto;
+       
+       input,button{
+           height: 60px;
+           border: none !important;
+           font-size: 20px;
+           margin: 0px 5px;
+       }
+
+       button{
+           background: black;
+           color: white;
+           padding: 0px 20px;
+       }
+   }
+}

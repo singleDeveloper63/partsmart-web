@@ -1,9 +1,5 @@
 @import '/node_modules/bootstrap/dist/css/bootstrap.min.css';
 @import '/node_modules/@fortawesome/fontawesome-free/css/all.css';
-@import '/node_modules/owl.carousel/dist/assets/owl.carousel.css';
-@import '/node_modules/owl.carousel/dist/assets/owl.theme.default.css';
-@import '/node_modules/slick-carousel/slick/slick.css';
-
 
 body{
     font-family: Regular;
@@ -186,5 +182,66 @@ button{
     cursor: grab;
     &:active{
         cursor: grabbing;
+    }
+}
+
+
+
+
+::-webkit-scrollbar{
+    width: 10px !important;
+    background: #ff9393b4;
+    transition: all .5s linear;
+}
+
+::-webkit-scrollbar-thumb{
+    background: #520404;
+    cursor: pointer;
+}
+
+*[data-tooltip]{
+    position: relative !important;
+
+    &::after{
+        content: attr(data-tooltip);
+        position: absolute;
+        display: block;
+        bottom: calc(100% + 10px);
+        left: 50%;
+        transition: .3s;
+        transform: translateX(-50%) scale(0);
+        visibility: hidden;
+        opacity: 0;
+        background: black;
+        padding: 5px 10px;
+        color: white;
+        border-radius: 5px;
+    }
+
+    &::before{
+        content: '';
+        border-width: 5px;
+        border-style: solid;
+        border-color: black transparent transparent transparent;
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        transform: translate(-50%,-30px)  scale(0);
+        visibility: hidden;
+        opacity: 0;
+        transition: .3s;
+    }
+
+    &:hover{
+        &::after {
+            transform: translateX(-50%) scale(1);
+            visibility: visible;
+            opacity: 1;
+        }
+        &::before{
+            transform: translate(-50%,0px) scale(1);
+            visibility: visible;
+            opacity: 1;
+        }
     }
 }

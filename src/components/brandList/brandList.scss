@@ -1,0 +1,29 @@
+.brandList {
+    margin: 20px 0px;
+
+    img,a{
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        -webkit-user-drag: none;
+        -webkit-touch-callout: none;
+    }
+
+    li{
+        padding-right: 10px;
+    }
+
+    &-head{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 5px 10px;
+        margin: 10px 5px;
+        border-bottom: 1px solid #7C0505;
+
+        h4{
+            font-family: 'Bold';
+        }
+    }
+}

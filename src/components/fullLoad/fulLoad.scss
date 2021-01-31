@@ -1,0 +1,37 @@
+.fullLoad{
+    background: #7C0505;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    overflow: hidden;
+
+    img{
+        width: 400px;
+
+        @media(max-width: 700px){
+            width: 200px;
+        }
+
+        @media(max-width: 450px){
+            content: url(../../assets/images/logo-small.png);
+            width: 100px;
+            height: 100px;
+            animation: animate 4s linear infinite;
+
+            @keyframes animate {
+                0%{
+                    transform: rotate(0deg);
+                }
+                100%{
+                    transform: rotate(360deg);
+                }
+            }
+        }
+    }
+}

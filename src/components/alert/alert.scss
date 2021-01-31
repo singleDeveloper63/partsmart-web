@@ -1,0 +1,23 @@
+.alert{
+    padding: 5px 0px;
+    p{
+        font-size: 14px;
+        margin: 0px !important;
+        animation: toTop 0.5s linear 1;
+        padding: 0px !important;
+
+        @keyframes toTop {
+            from{
+                opacity: 0;
+            }
+            to{
+                opacity: 1;
+            }
+        }
+    }
+    &.error{
+        p{
+            color: tomato;
+        }
+    }
+}
