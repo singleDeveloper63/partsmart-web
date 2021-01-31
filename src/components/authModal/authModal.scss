@@ -6,12 +6,11 @@
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: 3;
+    z-index: 10;
     display: none;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    overflow-y: auto !important; 
     overflow-x: hidden;
 
 
@@ -19,37 +18,27 @@
         display: flex;
     }
 
-    &::-webkit-scrollbar{
-        width: 10px !important;
-        background-color: white !important;
-        border-radius: 100px;
-    }
-
-    &::-webkit-scrollbar-thumb{
-        background: gray;
-        border-radius: 100px;
-    }
 
     &-body{
-        position: absolute;
-        top: 0;
-        left: 0;
-        min-height: 100vh;
-        width: 100vw;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-    }
-
-    .overlay{
-        background: transparent;
         position: fixed;
         top: 0;
         left: 0;
         right: 0;
         bottom: 0;
-        z-index: -1 !important;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow-y: auto;
+        flex-direction: column;
+
+        @media(max-width: 420px){
+            padding-top: 90px;
+
+            &::-webkit-scrollbar{
+                width: 0px !important;
+            }
+        }
     }
 
     label{
@@ -57,27 +46,18 @@
         text-transform: lowercase;
     }
 
-    ::-webkit-scrollbar{
-        background-color: rgba(179, 179, 179, 0.459) !important;
-        width: 8px !important;
-    }
-
-    ::-webkit-scrollbar-thumb{
-        background: gray !important;
-        border-radius: 100px !important;
-    }
-
     &-toggler{
         width: 600px;
         display: flex;
         align-items: flex-end;
+
         @media(max-width:700px){
             width: 400px;
         }
 
         
         @media(max-width:420px){
-            width: 300px;
+            width: 100%;
         }
 
         button{
@@ -151,6 +131,11 @@
             height: 50px;
         }
 
+        @media(max-width:420px){
+            z-index: 11;
+            background: black;
+        }
+
         &:hover{
             background: rgb(49, 49, 49);
         }
@@ -170,7 +155,7 @@
         }
         
         @media(max-width:420px){
-            width: 300px;
+            width: 100%;
         }
 
         input{

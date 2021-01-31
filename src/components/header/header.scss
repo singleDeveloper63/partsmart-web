@@ -208,6 +208,7 @@
 
 .page{
     padding: 0px 100px;
+    min-height: 100vh;
 
     @media(max-width: 1200px){
         padding: 0px 0px !important;

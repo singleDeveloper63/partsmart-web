@@ -86,7 +86,6 @@ function AuthModal({visible , onChange}){
                         </div>
                     </div>
                 </div>
-                
             </div>
     )
 }
