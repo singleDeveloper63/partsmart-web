@@ -15,4 +15,30 @@ function copyToClipboard(str){
     document.body.removeChild(el);
   };
 
-export default copyToClipboard;
+function notEmpty(obj){
+  const fields = [];
+  Object.keys(obj)
+    .forEach( field => {
+      if(obj[field] !== ""){
+        fields.push({ field : obj[field] })
+      }
+    })
+  return fields;
+}
+
+function createFilterFromObject(filterObject = {}){
+  let filters = "";
+  Object.keys(filterObject)
+    .forEach( (key) =>{
+      if(filterObject[key] !== ""){
+          filters+=`${key}=${filterObject[key]}&`
+      }
+    })
+    return filters;
+}
+
+export {
+  copyToClipboard,
+  notEmpty,
+  createFilterFromObject
+}

@@ -1,0 +1,32 @@
+.checkbox{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px !important;
+    height: 20px !important;
+    border: 1px solid rgb(124, 5, 5);
+    color: white;
+    background: white;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 0px;
+    overflow: hidden;
+    position: relative;
+
+    input{
+        display: none;
+
+        &:checked+span{
+            opacity: 1;
+            background: rgb(124, 5, 5);
+        }
+    }
+    span{
+        display: block;
+        border-radius: 100px;
+        width: 10px;
+        height: 10px;
+        transition: all 1s linear;
+        opacity: 0;
+    }
+}

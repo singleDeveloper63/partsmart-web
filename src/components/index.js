@@ -12,3 +12,4 @@ export { default as Order } from './order/order';
 export { default as Related } from './related/related';
 export { default as ProductList } from './productList/productList';
 export { default as FullLoad } from './fullLoad/fulLoad'
+export { default as Radio } from './radio/radio';

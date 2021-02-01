@@ -5,7 +5,8 @@
     visibility: hidden;
     top: 0px;
     height: 0px;
-    background: #410101;
+    background: #41010194;
+    backdrop-filter: blur(10px);
     z-index: 4;
     overflow-y: auto;
     height: 100%;
@@ -29,6 +30,7 @@
         bottom: 0px;
         right: 0px;
         background: #1a0101d8;
+        backdrop-filter: blur(5px);
         z-index: 3;
     }
 
@@ -81,7 +83,8 @@
                 button{
                     position: absolute;
                     border: none !important;
-                    background: #330000;
+                    background: #3300006c;
+                    backdrop-filter: blur(5px);
                     width: 40px;
                     height: 40px;
                     right: 20px;
@@ -91,7 +94,7 @@
                     transition: .3s;
 
                     &:hover{
-                        background-color: #6b0000;
+                        background-color: #6b000063;
                     }
                 }
                 

@@ -9,7 +9,8 @@ import rootReducer from './redux/reducers';
 
 
 const store = createStore(rootReducer , compose(
-  applyMiddleware(thunk)
+  applyMiddleware(thunk),
+  window.__REDUX_DEVTOOLS_EXTENSION__()
 ));
 
 ReactDOM.render(

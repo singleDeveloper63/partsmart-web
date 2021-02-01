@@ -3,7 +3,7 @@ import './prodGen.scss';
 import { RiShareForwardLine } from 'react-icons/ri';
 import { FaFacebookF , FaTelegramPlane , FaTwitter , FaLink , FaWhatsapp  } from 'react-icons/fa';
 import { useLocation } from 'react-router-dom';
-import copy from '../../../utils/common';
+import { copyToClipboard } from '../../../utils/common';
 import { wrapComponent } from 'react-snackbar-alert';
 import {  v4 } from 'uuid';
 import { Link } from 'react-router-dom';
@@ -59,7 +59,7 @@ const  General = wrapComponent(({data , createSnackbar}) => {
                         <a data-tooltip="WhatsApp" href={`https://wa.me/?text=${`${title} mahsulotini quyidagi havola orqali ko'rib chiqishingizni maslahat beraman :\n ${url}`}`} target='_blank'> WhatsApp <FaWhatsapp/> </a>
                         <a data-tooltip="Nusxalash"
                             onClick={()=>{
-                                copy(notEncodedURL);
+                                copyToClipboard(notEncodedURL);
                                 createSnackbar({
                                     message : "Havola buferga nusxalandi",
                                     theme : "success",

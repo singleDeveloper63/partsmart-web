@@ -1,0 +1,100 @@
+.products{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 20px 10px;
+
+    .filters{
+        flex: 2;
+        max-width: 300px;
+        background: white;
+        overflow: hidden;
+
+        button.getByFilters{
+            width: 100%;
+            border-radius: 5px;
+            background: rgb(125,1,1);
+            color: white;
+            border: none !important;
+            transition: .3s;
+            padding: 10px 0px;
+            text-transform: lowercase;
+            font-variant: small-caps;
+            font-size: 20px;
+
+            &:hover{
+                background: rgb(100,1,1);
+            }
+        }
+
+        .filter-item{
+            margin: 20px 0px;
+            cursor: pointer;
+            padding: 10px 10px;
+            background: rgba(231, 230, 230, 0.541);
+            border-radius: 10px;
+            width: 100%;
+
+            &-toggler{
+                padding: 10px 30px;
+                text-transform: lowercase;
+                width: 100%;
+                font-variant: small-caps;
+                font-weight: 900;
+            }
+
+            .filter{
+                display: flex ;
+                align-items: center;
+                padding: 10px 10px;
+                
+                &:not(:last-of-type){
+                    border-bottom: 1px solid lightgray;
+                }
+                position: relative;
+
+                .lb{
+                    margin-left: 10px;;
+                    cursor: pointer;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    clear: both;
+                    text-overflow: ellipsis;
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+
+    .productss-list{
+        flex: 5;
+        position: relative;
+        display: grid;
+        padding: 15px 10px;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        min-height: 50vh;
+
+        .no-content{
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+
+            img{
+                max-width: 300px;
+                margin-bottom: 20px;
+            }
+
+            h1{
+                font-size: 23px;
+                text-transform: lowercase;
+                font-variant: small-caps;
+            }
+        }
+    }
+}

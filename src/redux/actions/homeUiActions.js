@@ -16,6 +16,10 @@ const UIActions = {
         const res = await api.getCars(id);
         return res.data;
     }),
+    getCategoris : createAsyncThunk('categories/getCategories', async () => {
+        const res = await api.getCategories();
+        return res.data;
+    }),
     setBrandCars : createAction("setBrandCars"),
     getProducts : createAsyncThunk("categories/getProducts" , async () => {
         const res = await prodAPI.getProductsForUI();

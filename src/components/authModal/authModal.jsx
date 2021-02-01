@@ -41,10 +41,6 @@ function AuthModal({visible , onChange}){
 
     return(
         <div className={`auth-modal ${visible ? "aModalVisible" : ""}`}>
-            <div className="overlay" onClick={() => {
-                document.body.classList.remove("disableScroll");
-                onChange()
-            }}></div>
 
                 <div className="auth-modal-body">
                     <div className="auth-modal-toggler">
@@ -97,13 +93,13 @@ function SignIn({values , errors , touched , handleChange , handleSubmit}){
                 <label htmlFor="login"><VscMail/> Elektron pochta</label>
                 <input name='email' onChange={handleChange}
                     required type="text" className="form-control" value={values.email} id="login"/>
-                {(errors.email && touched.email) && <Alert type='error' message={errors.email}/>}
+                <ErrorMessage name="email" render={ msg => <Alert type="error" message={msg}/>}/>
             </div>
             <div className="form-group">
                 <label htmlFor="parol"><VscKey/> Parol</label>
                 <input name='password' onChange={handleChange}
                     required type="password" className="form-control" value={values.password} id="parol"/>
-                {(errors.password && touched.password) && <Alert type='error' message={errors.password}/>}
+                <ErrorMessage name="password" render={ msg => <Alert type="error" message={msg}/>}/>
             </div>
             <button type='submit' onClick={handleSubmit} className="signinBtn">Kirish</button>
         </>

@@ -70,6 +70,9 @@ const UIReducer = createReducer(initial , builder => {
         .addCase(UIActions.setActiveToDefault.type , (state) => {
             return {...state , currentProd : { pending : true , failed : false , data : { } }}
         })
+        .addCase(UIActions.getCategoris.fulfilled , (state,action) =>{
+            return {...state , categories : { pending : false , failed : false , list : action.payload }}
+        })
 })
 
 export default UIReducer;
